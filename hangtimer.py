@@ -9,24 +9,30 @@ def hangTimer(repeat):
         print("starting hang count in %s" % i)
         time.sleep(1)
 
-    for _ in range(repeat):    
-	# Count to 20
-        for i in range(1, 21):
+    for _ in range(repeat):
+        # Track rep number
+        print("Start rep:", _+1)
+        time.sleep(1)
+
+        # Count to 20
+        for i in range(1, hang_time + 1):
             print(i)
             time.sleep(1)
-        
+
         print("Stop hanging")
-
-        # Count to 10
-        for i in range(1, 11):
+        time.sleep(1)
+	
+	# Count to 10
+        for i in range(1, hang_time + 1):
             print(i)
             time.sleep(1)
-
-        print("Start rep::", _+2)
-    
+ 
     print("Hang complete!")
 
 # User input for repititions
 repeat_times = int(input("Enter the number of times to repeat: "))
+hang_time = int(input("Enter hang time for each rep (seconds): "))
+rest_time = int(input("Enter rest time for each rep (seconds): "))
+
 hangTimer(repeat_times)
 
