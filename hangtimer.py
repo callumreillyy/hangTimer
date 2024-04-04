@@ -1,8 +1,11 @@
 import time
 
-def timer(repeat):
+# Function which counts in 20 second then 10 second intervals. Repeats
+# according to user input. Prints to command line after each interval and once
+# all repititions have been completed. 
+def hangTimer(repeat):
+    #count down from 5
     for i in range(5, 0, -1):
-        #pre count to 5
         print("starting hang count in %s" % i)
         time.sleep(1)
 
@@ -23,6 +26,7 @@ def timer(repeat):
     
     print("Hang complete!")
 
+# User input for repititions
 repeat_times = int(input("Enter the number of times to repeat: "))
-timer(repeat_times)
+hangTimer(repeat_times)
 
