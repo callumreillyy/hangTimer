@@ -1,13 +1,29 @@
 import React from 'react';
+import './styles/index.css';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Home from './pages/Home';
+import MyTimers from './pages/MyTimers';
+import CreateTimer from './pages/CreateTimer';
+import BrowseTimers from './pages/BrowseTimers';
+import Stats from './pages/Stats';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+/**
+ * Render pages.
+ */
+const root = ReactDOM.createRoot(document.getElementById('root')); // <-- updated
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/my-timers" element={<MyTimers />}/>
+        <Route path="/create-timer" element={<CreateTimer />}/>
+        <Route path="/browse-timers" element={<BrowseTimers />}/>
+        <Route path="/stats" element={<Stats />}/>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
