@@ -1,7 +1,20 @@
-import React from "react";
+import Template from "../layouts/Template";
 
+/**
+ * The users created timers page. If they have no timers,
+ * shows a button to create one.
+ */
 export default function MyTimers() {
     return (
-        <p>MyTimers</p> 
+        <Template title="My Timers">
+            <div className="page-wrapper">
+                <p>You have no timers yet.</p>
+                <p>
+                <a href="/create-timer" className="button">
+                    Create a Timer
+                </a>
+                </p>
+            </div>
+        </Template>
     );
 }
