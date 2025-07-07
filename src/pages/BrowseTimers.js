@@ -1,7 +1,14 @@
-import React from "react";
+import Template from '../layouts/Template';
 
+/**
+ * Browse community created timers page.
+ */
 export default function BrowseTimers() {
     return (
-        <p>BrowseTimers</p> 
+        <Template title="Browse Timers">
+            <div className="options-wrapper">
+                <p>No community timers available yet.</p>
+            </div>
+        </Template>
     );
 }
