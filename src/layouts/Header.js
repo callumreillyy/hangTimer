@@ -32,8 +32,8 @@ export default function Header() {
 
   // Inline style for title positioning when expanded (top-left)
   const titleStyle = isExpanded
-    ? { position: 'absolute', top: '25px', left: '25px', transition: 'all 0.5s ease' }
-    : { position: 'static', transition: 'all 0.5s ease' };
+    ? { position: 'absolute', top: '25px', left: '25px'}
+    : { position: 'static' };
 
   return (
     <header className={`page-header${isExpanded ? " expanded" : ""}`}>
@@ -44,7 +44,11 @@ export default function Header() {
       {!isExpanded && (
         <button
           className="header-timer-button"
-          onClick={() => setIsExpanded(true)}
+          onClick={() => { 
+            setIsExpanded(true);
+            setIsRunning(false);
+            // setElapsed(0); don't reset, can add badges for achieving really long time :o
+        }}  
         >
           {formatted}
         </button>

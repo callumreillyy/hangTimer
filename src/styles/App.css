@@ -50,7 +50,6 @@ main {
 */
 .page-header {
   background: var(--blue);
-  color: var(--black);
   padding: 16px 24px 16px 24px;
   display: flex;
   align-items: center;
@@ -69,23 +68,15 @@ main {
   text-decoration: none;
   }
 
-.header-timer {
-  font-size: 2rem;
-  margin-left: 12px;
-  color: #FFFFFF;
-  text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9;
-  color: #FFFFFF;
-}
-
 .page-header {
   position: relative;
   overflow: hidden;
-  transition: height 0.5s ease;
   height: 64px;             
 }
 
 .page-header.expanded {
-  height: 100vh;             
+  height: 100vh;   
+  transition: height 0.5s ease-in-out;
 }
 
 .header-timer-button {
@@ -105,34 +96,23 @@ main {
 
 .timer-close-button {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  font-size: 2rem;
+  top: 25px;
+  right: 25px;
+  font-size: 3rem;
   background: none;
   border: none;
   color: #FFFFFF;
   cursor: pointer;
 }
 
-/* Animate header to page size */
+/* Animate timer for fullscreen size */
 .timer-fullscreen {
-  position: absolute;
-  top: 0; left: 0;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  /* start hidden above, then drop into view */
-  transform: translateY(-100%);
-  animation: slideDown 0.5s forwards;
-}
-
-@keyframes slideDown {
-  from { transform: translateY(-100%); }
-  to   { transform: translateY(0);      }
 }
 
 /* large timer in full-screen mode */
@@ -142,9 +122,8 @@ main {
   margin-bottom: 2rem;
 }
 
-/* layout for timer control buttons */
 .timer-controls button {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   margin: 0 1rem;
   padding: 0.5rem 1rem;
   border: 2px solid #FFFFFF;
