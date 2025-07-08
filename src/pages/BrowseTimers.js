@@ -7,7 +7,7 @@ export default function BrowseTimers() {
     return (
         <Template title="Browse Timers">
             <div className="options-wrapper">
-                <p>No community timers available yet.</p>
+                <p>No timers created yet.</p>
             </div>
         </Template>
     );

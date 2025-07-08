@@ -77,6 +77,83 @@ main {
   color: #FFFFFF;
 }
 
+.page-header {
+  position: relative;
+  overflow: hidden;
+  transition: height 0.5s ease;
+  height: 64px;             
+}
+
+.page-header.expanded {
+  height: 100vh;             
+}
+
+.header-timer-button {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 2rem;
+  cursor: pointer;
+  text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9;
+  padding: 0;
+}
+
+/* hide original timer */
+.page-header.expanded .header-timer-button {
+  display: none;
+}
+
+.timer-close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+/* Animate header to page size */
+.timer-fullscreen {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* start hidden above, then drop into view */
+  transform: translateY(-100%);
+  animation: slideDown 0.5s forwards;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0);      }
+}
+
+/* large timer in full-screen mode */
+.timer-display {
+  font-size: 5rem;
+  color: #FFFFFF;
+  margin-bottom: 2rem;
+}
+
+/* layout for timer control buttons */
+.timer-controls button {
+  font-size: 1.25rem;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #FFFFFF;
+  background: transparent;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+
 /* Page footer styles 
 */
 .page-footer {
