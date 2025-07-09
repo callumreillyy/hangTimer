@@ -49,14 +49,23 @@ main {
 /* Page header styles 
 */
 .page-header {
+  position: relative;
+  overflow: hidden;
   background: var(--blue);
   padding: 16px 24px 16px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 64px;
+}
+
+.page-header.expanded {
+  height: 100vh;   
+  transition: height 0.5s ease-in-out;
 }
 
 .header-title {
+  position: static;
   margin: 0;
   font-size: 2.5rem;
   font-weight: 900;
@@ -68,15 +77,10 @@ main {
   text-decoration: none;
   }
 
-.page-header {
-  position: relative;
-  overflow: hidden;
-  height: 64px;             
-}
-
-.page-header.expanded {
-  height: 100vh;   
-  transition: height 0.5s ease-in-out;
+.header-title.expanded {
+  position: absolute;
+  top: 25px;
+  left: 25px;
 }
 
 .header-timer-button {
