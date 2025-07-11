@@ -217,14 +217,18 @@ main {
 .options-button p {
   position: absolute;
   margin: 0;
-  transition: width 0.6s ease, height 0.6s ease;
+  transition: all 0.6s ease;
 }
+
+/* Option button text animation styles
+*/
 
 .options-button .move-center {
   top: 0%;
   left: 0%;
   padding-left: 1rem;
   transform: translate(0%, 150%);
+
 }
 
 .options-button .move-top-left {
@@ -232,6 +236,7 @@ main {
   left: 1rem;
   transform: none;
   padding: 0;
+
 }
 
 

@@ -6,10 +6,10 @@ export default function OptionButton({
   onClick = null,
   isExpanded = false,
   isExpandable = false,
-  isActive = false
 }) {
   const buttonClass = `options-button ${isExpanded ? "expanded" : ""}`;
 
+  // check if button is expandable, then if isExpanded
   const textClass = isExpandable
     ? isExpanded
       ? "move-top-left"
