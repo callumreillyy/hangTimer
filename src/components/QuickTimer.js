@@ -43,7 +43,7 @@ export default function QuickTimer({ isExpanded, setIsExpanded }) {
         <div className="timer-fullscreen">
           <button
             className="timer-close-button"
-            onClick={() => setIsExpanded(false)}
+            onClick={() => setIsExpanded(!isExpanded)}
           >
             ×
           </button>
@@ -51,9 +51,9 @@ export default function QuickTimer({ isExpanded, setIsExpanded }) {
           <div className="timer-display">{formatted}</div>
           <div className="timer-controls">
             {isRunning ? (
-              <button onClick={() => setIsRunning(false)}>Stop</button>
+              <button onClick={() => setIsRunning(!isRunning)}>Stop</button>
             ) : (
-              <button onClick={() => setIsRunning(true)}>Start</button>
+              <button onClick={() => setIsRunning(isRunning)}>Start</button>
             )}
             <button
               onClick={() => {
