@@ -49,15 +49,23 @@ main {
 /* Page header styles 
 */
 .page-header {
+  position: relative;
+  overflow: hidden;
   background: var(--blue);
-  color: var(--black);
   padding: 16px 24px 16px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 64px;
+}
+
+.page-header.expanded {
+  height: 100vh;   
+  transition: height 0.5s ease-in-out;
 }
 
 .header-title {
+  position: static;
   margin: 0;
   font-size: 2.5rem;
   font-weight: 900;
@@ -69,23 +77,10 @@ main {
   text-decoration: none;
   }
 
-.header-timer {
-  font-size: 2rem;
-  margin-left: 12px;
-  color: #FFFFFF;
-  text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9;
-  color: #FFFFFF;
-}
-
-.page-header {
-  position: relative;
-  overflow: hidden;
-  transition: height 0.5s ease;
-  height: 64px;             
-}
-
-.page-header.expanded {
-  height: 100vh;             
+.header-title.expanded {
+  position: absolute;
+  top: 25px;
+  left: 25px;
 }
 
 .header-timer-button {
@@ -105,34 +100,23 @@ main {
 
 .timer-close-button {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  font-size: 2rem;
+  top: 25px;
+  right: 25px;
+  font-size: 3rem;
   background: none;
   border: none;
   color: #FFFFFF;
   cursor: pointer;
 }
 
-/* Animate header to page size */
+/* Animate timer for fullscreen size */
 .timer-fullscreen {
-  position: absolute;
-  top: 0; left: 0;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  /* start hidden above, then drop into view */
-  transform: translateY(-100%);
-  animation: slideDown 0.5s forwards;
-}
-
-@keyframes slideDown {
-  from { transform: translateY(-100%); }
-  to   { transform: translateY(0);      }
 }
 
 /* large timer in full-screen mode */
@@ -142,9 +126,8 @@ main {
   margin-bottom: 2rem;
 }
 
-/* layout for timer control buttons */
 .timer-controls button {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   margin: 0 1rem;
   padding: 0.5rem 1rem;
   border: 2px solid #FFFFFF;
@@ -196,17 +179,26 @@ main {
   align-items: center;
 }
 
-/* Options button styles */
+/* CreateTimer styles */
 .options-button {
-  border: 3px solid;
-  border-color: var(--black);
+  width: 17rem;
+  height: 5rem;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border: 3px solid var(--black);
   color: var(--blue-light);
   padding: 0.25em 0.5em;
   box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
   position: relative;
   user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+  transition: width 0.6s ease, height 0.6s ease;
+  overflow: hidden;
 }
 
 .options-button:active {
@@ -214,6 +206,39 @@ main {
   top: 5px;
   left: 5px;
 }
+
+.options-button.expanded {
+  width: 90vw;
+  height: 60vh;
+  background-color: var(--blue-light);
+  color: var(--black);
+}
+
+.options-button p {
+  position: absolute;
+  margin: 0;
+  transition: all 0.6s ease;
+}
+
+/* Option button text animation styles
+*/
+
+.options-button .move-center {
+  top: 0%;
+  left: 0%;
+  padding-left: 1rem;
+  transform: translate(0%, 150%);
+
+}
+
+.options-button .move-top-left {
+  top: 1rem;
+  left: 1rem;
+  transform: none;
+  padding: 0;
+
+}
+
 
 @media (min-width: 768px) {
   .options-button {
