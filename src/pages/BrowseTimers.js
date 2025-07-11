@@ -6,7 +6,7 @@ import Template from '../layouts/Template';
 export default function BrowseTimers() {
     return (
         <Template title="Browse Timers">
-            <div className="options-wrapper">
+            <div className="page-wrapper">
                 <p>No timers created yet.</p>
             </div>
         </Template>

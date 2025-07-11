@@ -9,11 +9,11 @@ export default function MyTimers() {
         <Template title="My Timers">
             <div className="page-wrapper">
                 <p>You have no timers yet.</p>
-                <p>
+                
                 <a href="/create-timer" className="button">
                     Create a Timer
                 </a>
-                </p>
+                
             </div>
         </Template>
     );
