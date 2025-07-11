@@ -153,7 +153,6 @@ main {
 .options-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1.5rem;
   border-radius: 18px;
   min-width: 320px;
@@ -176,22 +175,30 @@ main {
   letter-spacing: 1.5px;
   font-weight: 600;
   height: 5rem;
-  width: 17rem;
   display: flex;
   align-items: center;
 }
 
-/* Options button styles */
-.options-wrapper a {
-  border: 3px solid;
-  border-color: var(--black);
+/* CreateTimer styles */
+.options-button {
+  width: 17rem;
+  height: 5rem;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  border: 3px solid var(--black);
   color: var(--blue-light);
   padding: 0.25em 0.5em;
   box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
   position: relative;
   user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+  transition: width 0.6s ease, height 0.6s ease;
+  overflow: hidden;
 }
 
 .options-button:active {
@@ -199,6 +206,34 @@ main {
   top: 5px;
   left: 5px;
 }
+
+.options-button.expanded {
+  width: 90vw;
+  height: 60vh;
+  background-color: var(--blue-light);
+  color: var(--black);
+}
+
+.options-button p {
+  position: absolute;
+  margin: 0;
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.options-button .move-center {
+  top: 0%;
+  left: 0%;
+  padding-left: 1rem;
+  transform: translate(0%, 150%);
+}
+
+.options-button .move-top-left {
+  top: 1rem;
+  left: 1rem;
+  transform: none;
+  padding: 0;
+}
+
 
 @media (min-width: 768px) {
   .options-button {

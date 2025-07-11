@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/App.css';
 import Template from '../layouts/Template';
+import OptionButton from "../components/OptionButton";
+
 
 const TITLE = "Home Page";
 
@@ -35,10 +37,10 @@ export default function Home() {
       }
     >
       <div className='options-wrapper'>
-        <Link to={'/create-timer'} className="options-button"><p>Create Timer</p></Link>
-        <Link to={'/my-timers'} className="options-button"><p>My Timers</p></Link>
-        <Link to={'/browse-timers'} className="options-button"><p>Browse Timers</p></Link>
-        <Link to={'/stats'} className="options-button"><p>Stats</p></Link>
+        <OptionButton label="Create Timer" to="/create-timer" />
+        <OptionButton label="My Timers" to="/my-timers" />
+        <OptionButton label="Browse Timers" to="/browse-timers" />
+        <OptionButton label="Stats" to="/stats" />
       </div>
     </Template>
   );
