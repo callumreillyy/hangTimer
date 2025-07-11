@@ -158,16 +158,19 @@ main {
   min-width: 320px;
 }
 
-.options-wrapper a:hover {
+.options-wrapper a:hover, 
+.options-wrapper button:hover {
   color: var(--black);
   background-color: var(--blue-light);
 }
 
-.options-wrapper a > p {
+.options-wrapper a > p,
+.options-wrapper button > p {
   color: black;
 }
 
-.options-wrapper a {
+.options-wrapper a,
+.options-wrapper button {
   font-size: 20px;
   cursor: pointer;
   text-decoration: none;
@@ -181,6 +184,7 @@ main {
 
 /* CreateTimer styles */
 .options-button {
+  all: unset;
   width: 17rem;
   height: 5rem;
   font-size: 20px;
@@ -201,11 +205,7 @@ main {
   overflow: hidden;
 }
 
-.options-button:active {
-  box-shadow: 0px 0px 0px 0px;
-  top: 5px;
-  left: 5px;
-}
+
 
 .options-button.expanded {
   width: 90vw;

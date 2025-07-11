@@ -25,10 +25,10 @@ export default function OptionButton({
     );
   }
 
-  // Render as a clickable <a>
+  // Render as a button <button>
   return (
-    <a className={buttonClass} onClick={onClick}>
+    <button className={buttonClass} onClick={onClick}>
       <p className={textClass}>{label}</p>
-    </a>
+    </button>
   );
 }
