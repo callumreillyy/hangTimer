@@ -18,8 +18,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="/my-timers" element={<MyTimers />}/>
         <Route path="/create-timer" element={<CreateTimer />}/>
+        <Route path="/my-timers" element={<MyTimers />}/>
         <Route path="/browse-timers" element={<BrowseTimers />}/>
         <Route path="/stats" element={<Stats />}/>
       </Routes>
