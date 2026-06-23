@@ -1,7 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 
 export default function QuickTimer({ isExpanded, setIsExpanded }) { 
-  const [elapsed, setElapsed] = useState(0);
+  const [elapsed, setElapsed] = useState(() => {
+    const savedElapsed = localStorage.getItem("quickTimerElapsed");
+    return savedElapsed ? parseInt(savedElapsed, 10) : 0;
+  });
   const [isRunning, setIsRunning] = useState(true);
   
   const startTimeRef = useRef(Date.now());
@@ -11,7 +14,11 @@ export default function QuickTimer({ isExpanded, setIsExpanded }) {
     if (isRunning) {
       startTimeRef.current = Date.now() - elapsed;
       id = setInterval(() => {
-        setElapsed(Date.now() - startTimeRef.current);
+        setElapsed((prevElapsed) => {
+          const newElapsed = Date.now() - startTimeRef.current;
+          localStorage.setItem("quickTimerElapsed", newElapsed); // Save to localStorage
+          return newElapsed;
+        });
       }, 100); 
     }
     return () => clearInterval(id);
@@ -30,6 +37,7 @@ export default function QuickTimer({ isExpanded, setIsExpanded }) {
         <button
           className="header-timer-button"
           onClick={() => {
+            setElapsed(0);
             setIsExpanded(!isExpanded);
             setIsRunning(isExpanded);
           }}
